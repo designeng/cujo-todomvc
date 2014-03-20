@@ -1,6 +1,6 @@
 define({
   theme: {
-    module: 'css!theme/base.css'
+    module: 'css!vendor/todomvc-common/base.css'
   },
   root: {
     $ref: 'dom!todoapp'
@@ -8,10 +8,7 @@ define({
   createView: {
     render: {
       template: {
-        module: 'text!app/js/create/template.html'
-      },
-      replace: {
-        module: 'i18n!app/js/create/strings'
+        module: 'text!create/template.html'
       }
     },
     insert: {
@@ -30,13 +27,10 @@ define({
   listView: {
     render: {
       template: {
-        module: 'text!app/js/list/template.html'
-      },
-      replace: {
-        module: 'i18n!app/js/list/strings'
+        module: 'text!list/template.html'
       },
       css: {
-        module: 'css!app/js/list/structure.css'
+        module: 'css!list/structure.css'
       }
     },
     insert: {
@@ -53,7 +47,7 @@ define({
           '.toggle', {
             attr: 'classList',
             handler: {
-              module: 'app/js/list/setCompletedClass'
+              module: 'list/setCompletedClass'
             }
           }
         ]
@@ -63,13 +57,10 @@ define({
   controlsView: {
     render: {
       template: {
-        module: 'text!app/js/controls/template.html'
-      },
-      replace: {
-        module: 'i18n!app/js/controls/strings'
+        module: 'text!controls/template.html'
       },
       css: {
-        module: 'css!app/js/controls/structure.css'
+        module: 'css!controls/structure.css'
       }
     },
     insert: {
@@ -79,10 +70,7 @@ define({
   footerView: {
     render: {
       template: {
-        module: 'text!app/js/footer/template.html'
-      },
-      replace: {
-        module: 'i18n!app/js/footer/strings'
+        module: 'text!footer/template.html'
       }
     },
     insert: {
@@ -106,7 +94,7 @@ define({
       args: {
         strategyOptions: {
           validator: {
-            module: 'app/js/create/validateTodo'
+            module: 'create/validateTodo'
           }
         }
       }
@@ -117,7 +105,7 @@ define({
     }
   },
   todoController: {
-    create: 'app/js/controller',
+    create: 'controller',
     properties: {
       todos: {
         $ref: 'todos'
@@ -176,10 +164,10 @@ define({
     module: 'cola/dom/form'
   },
   cleanTodo: {
-    module: 'app/js/create/cleanTodo'
+    module: 'create/cleanTodo'
   },
   generateMetadata: {
-    module: 'app/js/create/generateMetadata'
+    module: 'create/generateMetadata'
   },
   toggleEditingState: {
     create: {
@@ -222,5 +210,5 @@ define({
       }
     }
   },
-  plugins: ['wire/dom', 'wire/dom/render', 'wire/on', 'wire/aop', 'wire/connect', 'cola']
+  plugins: ['wire/debug', 'wire/dom', 'wire/dom/render', 'wire/on', 'wire/aop', 'wire/connect', 'cola']
 });

@@ -49,6 +49,14 @@ module.exports = (grunt) ->
                     dest: "prebuild/"
                     filter: "isFile"
                 ]
+            bower_comps:
+                files: [
+                    expand: true
+                    cwd: "bower_components/"
+                    src: ["**"]
+                    dest: "app/js/vendor"
+                    filter: "isFile"
+                ]
 
         clean:
             prebuild: "prebuild"
@@ -102,3 +110,5 @@ module.exports = (grunt) ->
     grunt.registerTask 'build', ["prebuild", "requirejs", "afterbuild"]
     grunt.registerTask 'prebuild', ["copy:app"]
     grunt.registerTask 'afterbuild', ["clean:prebuild"]
+
+    grunt.registerTask 'vendor', ["copy:bower_comps"]

@@ -1,3 +1,23 @@
+        # controls
+
+        # "linkControl"           : "controls/link/linkControl"
+        # "textControl"           : "controls/text/textControl"
+        # "boxControl"            : "controls/box/boxControl"
+        # "buttonControl"         : "controls/button/buttonControl"
+        # "switchControl"         : "controls/switch/switchControl"
+        # "inputTextControl"      : "controls/inputText/inputTextControl"
+        # "comboboxControl"       : "controls/combobox/comboboxControl"
+        # "checkboxControl"       : "controls/checkbox/checkboxControl"
+        # "navigationBarControl"  : "controls/navigationbar/navigationBarControl"
+        # "hintControl"           : "controls/hint/hintControl"
+        # "dropDownListControl"   : "controls/dropdownlist/dropDownListControl"
+        # "flightPointControl"    : "controls/flightpoint/flightPointControl"
+        # "inputError"            : "controls/error/inputError"
+        # "tableControl"          : "controls/table/tableControl"
+        # "popupControl"          : "controls/popup/popupControl"
+        # "infoControl"           : "controls/info/infoControl"
+
+
 # Bootstrap the app. Notice that curl is not a global, only define.
 #global define
 define ['curl'], (curl) ->

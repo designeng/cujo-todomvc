@@ -4,7 +4,7 @@ define
     # Cujo uses OOCSS principles and thus separates theme (skin)
     # from structure CSS.
     theme:
-        module: 'css!theme/base.css'
+        module: 'css!vendor/todomvc-common/base.css'
 
     
     # The root node where all the views will be inserted
@@ -16,10 +16,10 @@ define
     createView:
         render:
             template:
-                module: 'text!app/js/create/template.html'
+                module: 'text!create/template.html'
 
-            replace:
-                module: 'i18n!app/js/create/strings'
+            # replace:
+            #     module: 'i18n!create/strings'
 
         insert:
             first: 'root'
@@ -40,13 +40,13 @@ define
     listView:
         render:
             template:
-                module: 'text!app/js/list/template.html'
+                module: 'text!list/template.html'
 
-            replace:
-                module: 'i18n!app/js/list/strings'
+            # replace:
+            #     module: 'i18n!list/strings'
 
             css:
-                module: 'css!app/js/list/structure.css'
+                module: 'css!list/structure.css'
 
         insert:
             after: 'createView'
@@ -63,7 +63,7 @@ define
                     {
                         attr: 'classList'
                         handler:
-                            module: 'app/js/list/setCompletedClass'
+                            module: 'list/setCompletedClass'
                     }
                 ]
 
@@ -73,13 +73,13 @@ define
     controlsView:
         render:
             template:
-                module: 'text!app/js/controls/template.html'
+                module: 'text!controls/template.html'
 
-            replace:
-                module: 'i18n!app/js/controls/strings'
+            # replace:
+            #     module: 'i18n!controls/strings'
 
             css:
-                module: 'css!app/js/controls/structure.css'
+                module: 'css!controls/structure.css'
 
         insert:
             after: 'listView'
@@ -90,10 +90,10 @@ define
     footerView:
         render:
             template:
-                module: 'text!app/js/footer/template.html'
+                module: 'text!footer/template.html'
 
-            replace:
-                module: 'i18n!app/js/footer/strings'
+            # replace:
+            #     module: 'i18n!footer/strings'
 
         insert:
             after: 'root'
@@ -118,7 +118,7 @@ define
             args:
                 strategyOptions:
                     validator:
-                        module: 'app/js/create/validateTodo'
+                        module: 'create/validateTodo'
 
         before:
             add: 'cleanTodo | generateMetadata'
@@ -131,7 +131,7 @@ define
     # view controllers. Since this is a relatively simple application,
     # a single controller fits well.
     todoController:
-        create: 'app/js/controller'
+        create: 'controller'
         properties:
             todos:
                 $ref: 'todos'
@@ -187,10 +187,10 @@ define
         module: 'cola/dom/form'
 
     cleanTodo:
-        module: 'app/js/create/cleanTodo'
+        module: 'create/cleanTodo'
 
     generateMetadata:
-        module: 'app/js/create/generateMetadata'
+        module: 'create/generateMetadata'
 
     toggleEditingState:
         create:
@@ -225,7 +225,8 @@ define
 
                 prefix: 'completed'
 
-    plugins: [ #'wire/debug',
+    plugins: [ 
+        'wire/debug',
         'wire/dom'
         'wire/dom/render'
         'wire/on'
